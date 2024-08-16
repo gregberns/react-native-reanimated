@@ -59,17 +59,17 @@ dependencies {
 
 afterEvaluate { project ->
 
-    task androidJavadoc(type: Javadoc) {
-        source = android.sourceSets.main.java.srcDirs
-        classpath += files(android.bootClasspath)
-        classpath += files(project.getConfigurations().getByName('compile').asList())
-        include '**/*.java'
-    }
+    // task androidJavadoc(type: Javadoc) {
+    //     source = android.sourceSets.main.java.srcDirs
+    //     classpath += files(android.bootClasspath)
+    //     classpath += files(project.getConfigurations().getByName('compile').asList())
+    //     include '**/*.java'
+    // }
 
-    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
-        archiveClassifier = 'javadoc'
-        from androidJavadoc.destinationDir
-    }
+    // task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+    //     archiveClassifier = 'javadoc'
+    //     from androidJavadoc.destinationDir
+    // }
 
     task androidSourcesJar(type: Jar) {
         archiveClassifier = 'sources'
@@ -93,7 +93,7 @@ afterEvaluate { project ->
 
     artifacts {
         archives androidSourcesJar
-        archives androidJavadocJar
+        // archives androidJavadocJar
     }
 
     publishing {
